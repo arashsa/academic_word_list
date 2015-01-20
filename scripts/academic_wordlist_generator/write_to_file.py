@@ -31,9 +31,11 @@ def write_dict_to_file(the_dict, args=''):
 
     global_word_freq_list = create_word_lists.get_global_word_freq_list()
 
-    make_file.write('{0:20} {1:10} {2:10}\n'.format('word', 'r_freq', 'f_freq'))
+    make_file.write('{:20} {:10} {:10}\n'.format('word', 'r_freq', 'f_freq'))
+    word_count = 1
     for w, count in sorted(the_dict.items()):
-        make_file.write('{0:20} {1:10} {2:10}\n'.format(w, count, global_word_freq_list[w]))
+        make_file.write('{}: {:20} {:10} {:10}\n'.format(word_count, w, count, global_word_freq_list[w]))
+        word_count += 1
 
 
 def write_dict_to_file_cutoff(the_dict):
@@ -45,8 +47,10 @@ def write_dict_to_file_cutoff(the_dict):
     make_file = open('list_cutoff.txt', 'w')
     global_word_freq_list = create_word_lists.get_global_word_freq_list()
 
-    make_file.write('{0:20} {1:10} {2:10}\n'.format('word', 'reduced_frequency', 'frequency'))
+    make_file.write('{:20} {:10} {:10}\n'.format('word', 'reduced_frequency', 'frequency'))
     sorted_dict = sorted(the_dict.iteritems(), key=operator.itemgetter(1), reverse=True)
+    word_count = 1
     for (w, v) in sorted_dict:
-        make_file.write('{0:20} {1:10} {2:10}\n'.format(w, v, global_word_freq_list[w]))
+        make_file.write('{}: {:20} {:10} {:10}\n'.format(word_count, w, v, global_word_freq_list[w]))
+        word_count += 1
 

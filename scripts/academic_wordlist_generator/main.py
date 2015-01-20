@@ -33,7 +33,7 @@ def create_list(print_alpha=False, print_val=False, cutoff=15):
 
 print "starting time: {}.{}".format(time.gmtime().tm_hour + 1, time.gmtime().tm_min)
 start_time = time.time()
-read_all_files_every('/Users/arashsaidi/Work/TextLab/Code/DUO_Corpus/Bokmaal/*.txt', 'txt', 700)
+read_all_files('/Users/arashsaidi/Work/Corpus/DUO_Corpus/Bokmaal-tagged-random/*.txt', 'txt')
 create_list()
 write_dict_to_file(get_global_reduced_freqs())
 write_dict_to_file_cutoff(get_global_reduced_freqs())

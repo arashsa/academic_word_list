@@ -7,6 +7,7 @@ import xml.etree.ElementTree as ElTree
 from lxml import etree
 from collections import Counter
 import re
+from cg3.read_cg3 import read_cg3
 
 most_frequent_words = []  # List of most frequent words taken from file
 
@@ -103,6 +104,19 @@ def read_xml(filename, from_string=False, write_to_file=False):
         no_tags = re.sub(ur'[^a-zA-Z0-9]', ' ', no_tags, re.UNICODE)
 
     return create_word_list(no_tags)
+
+
+def read_txt_cg3(filename):
+    """
+    reads cg3 files
+    :param filename:
+    :return:
+    """
+    global global_word_list
+    test = (read_cg3(filename))
+    for sentence in test:
+        for word in sentence:
+            global_word_list.append(word)
 
 
 def read_txt(filename):

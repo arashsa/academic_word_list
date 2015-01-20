@@ -2,7 +2,7 @@ __author__ = 'arashsaidi'
 
 import glob
 
-from scripts.academic_wordlist_generator.create_word_lists import read_xml, read_txt
+from scripts.academic_wordlist_generator.create_word_lists import read_xml, read_txt, read_txt_cg3
 
 
 def read_all_files(p, ending):
@@ -59,7 +59,7 @@ def read_current_file(f, ending):
     if ending == 'xml':
         read_xml(f)
     elif ending == 'txt':
-        read_txt(f)
+        read_txt_cg3(f)
     else:
         print 'ERROR: Do not support type of file'
 
